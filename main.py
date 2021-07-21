@@ -11,8 +11,8 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle('Casio Fx-82')
 
-
-app = QApplication(sys.argv)
-casio = MyWindow()
-casio.show()
-sys.exit(app.exec_())
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    casio = MyWindow()
+    casio.show()
+    sys.exit(app.exec_())
