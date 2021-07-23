@@ -262,7 +262,7 @@ class Ui_MainWindow(object):
         self.b1.setFlat(False)
         self.b1.setObjectName("b1")
         self.b7 = QtWidgets.QPushButton(self.widget)
-        self.b7.setEnabled(False)
+        self.b7.setEnabled(True)
         self.b7.setGeometry(QtCore.QRect(130, 691, 71, 51))
         font = QtGui.QFont()
         font.setFamily("Franklin Gothic Medium")
