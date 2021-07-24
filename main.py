@@ -1,7 +1,7 @@
 import sys
 
 from PySide2 import QtWidgets, QtGui, QtCore
-from PySide2.QtWidgets import QApplication 
+from PySide2.QtWidgets import QApplication
 from casio_template import Ui_MainWindow
 
 
@@ -15,70 +15,63 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.operator = ""
         self.total = []
 
-
-
-# Display number
+    # Display number
     def displayZero(self):
         self.lineEdit.setText(self.lineEdit.text() + "0")
-
 
     def displayOne(self):
         self.lineEdit.setText(self.lineEdit.text() + "1")
 
-
     def displayTwo(self):
         self.lineEdit.setText(self.lineEdit.text() + "2")
-
 
     def displayThree(self):
         self.lineEdit.setText(self.lineEdit.text() + "3")
 
-
     def displayFour(self):
         self.lineEdit.setText(self.lineEdit.text() + "4")
-
 
     def displayFive(self):
         self.lineEdit.setText(self.lineEdit.text() + "5")
 
-
     def displaySix(self):
         self.lineEdit.setText(self.lineEdit.text() + "6")
-
 
     def displaySeven(self):
         self.lineEdit.setText(self.lineEdit.text() + "7")
 
-
     def displayEight(self):
         self.lineEdit.setText(self.lineEdit.text() + "8")
-
 
     def displayNine(self):
         self.lineEdit.setText(self.lineEdit.text() + "9")
 
+    def displayDot(self):
+        self.lineEdit.setText(self.lineEdit.text() + '.')
 
-# Operators
+    # Operators
     def bmore(self):
-        self.numbers = (int(self.lineEdit.text()))
+
+        self.numbers = (float(self.lineEdit.text()))
         self.operator = "+"
         self.lineEdit.clear()
         print(self.numbers)
 
     def bless(self):
-        self.numbers = (int(self.lineEdit.text()))
+
+        self.numbers = (float(self.lineEdit.text()))
         self.operator = "-"
         self.lineEdit.clear()
         print(self.numbers)
 
     def bnoun(self):
-        self.numbers = (int(self.lineEdit.text()))
+        self.numbers = (float(self.lineEdit.text()))
         self.operator = "*"
         self.lineEdit.clear()
         print(self.numbers)
 
     def bdivide(self):
-        self.numbers = (int(self.lineEdit.text()))
+        self.numbers = (float(self.lineEdit.text()))
         self.operator = "/"
         self.lineEdit.clear()
         print(self.numbers)
@@ -87,23 +80,20 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit.clear()
 
     def pressEqual(self):
-        self.numberTwo = (int(self.lineEdit.text()))
+        self.numberTwo = (float(self.lineEdit.text()))
         if self.operator == "+":
-            total = int(self.numbers) + int(self.numberTwo)
+            total = float(self.numbers) + float(self.numberTwo)
             print(total)
             self.lineEdit.setText(str(total))
         elif self.operator == "-":
-            total = int(self.numbers) - int(self.numberTwo)
+            total = float(self.numbers) - float(self.numberTwo)
             self.lineEdit.setText(str(total))
         elif self.operator == "*":
-            total = int(self.numbers) * int(self.numberTwo)
+            total = float(self.numbers) * float(self.numberTwo)
             self.lineEdit.setText(str(total))
         elif self.operator == "/":
-            total = int(self.numbers) / int(self.numberTwo)
+            total = float(self.numbers) / float(self.numberTwo)
             self.lineEdit.setText(str(total))
-
-
-
 
 
 if __name__ == '__main__':
@@ -120,6 +110,7 @@ if __name__ == '__main__':
     casio.b8.clicked.connect(casio.displayEight)
     casio.b9.clicked.connect(casio.displayNine)
     casio.b0.clicked.connect(casio.displayZero)
+    casio.dot.clicked.connect(casio.displayDot)
     casio.bc.clicked.connect(casio.erase)
     casio.more.clicked.connect(casio.bmore)
     casio.less.clicked.connect(casio.bless)

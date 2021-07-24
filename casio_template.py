@@ -8,7 +8,7 @@
 # WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 from PySide2 import QtWidgets, QtCore, QtGui
-
+from PySide2.QtCore import Qt
 
 import ressource_rc
 
@@ -312,6 +312,7 @@ class Ui_MainWindow(object):
         self.Mmore.setObjectName("Mmore")
         self.lineEdit = QtWidgets.QLineEdit(self.widget)
         self.lineEdit.setGeometry(QtCore.QRect(160, 310, 361, 101))
+        self.lineEdit.setAlignment(Qt.AlignRight)
         font = QtGui.QFont()
         font.setFamily("Impact")
         font.setPointSize(40)
