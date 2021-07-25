@@ -13,72 +13,57 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.numbers = ""
         self.numberTwo = ""
         self.operator = ""
-        self.total = []
+        self.memory = []
 
     # Display number
     def displayZero(self):
         self.lineEdit.setText(self.lineEdit.text() + "0")
-
     def displayOne(self):
         self.lineEdit.setText(self.lineEdit.text() + "1")
-
     def displayTwo(self):
         self.lineEdit.setText(self.lineEdit.text() + "2")
-
     def displayThree(self):
         self.lineEdit.setText(self.lineEdit.text() + "3")
-
     def displayFour(self):
         self.lineEdit.setText(self.lineEdit.text() + "4")
-
     def displayFive(self):
         self.lineEdit.setText(self.lineEdit.text() + "5")
-
     def displaySix(self):
         self.lineEdit.setText(self.lineEdit.text() + "6")
-
     def displaySeven(self):
         self.lineEdit.setText(self.lineEdit.text() + "7")
-
     def displayEight(self):
         self.lineEdit.setText(self.lineEdit.text() + "8")
-
     def displayNine(self):
         self.lineEdit.setText(self.lineEdit.text() + "9")
-
     def displayDot(self):
         self.lineEdit.setText(self.lineEdit.text() + '.')
+    def closed(self):
+        exit()
 
     # Operators
     def bmore(self):
-
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "+"
         self.lineEdit.clear()
         print(self.numbers)
-
     def bless(self):
-
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "-"
         self.lineEdit.clear()
         print(self.numbers)
-
     def bnoun(self):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "*"
         self.lineEdit.clear()
         print(self.numbers)
-
     def bdivide(self):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "/"
         self.lineEdit.clear()
         print(self.numbers)
-
     def erase(self):
         self.lineEdit.clear()
-
     def pressEqual(self):
         self.numberTwo = (float(self.lineEdit.text()))
         if self.operator == "+":
@@ -117,4 +102,5 @@ if __name__ == '__main__':
     casio.noun.clicked.connect(casio.bnoun)
     casio.divide.clicked.connect(casio.bdivide)
     casio.equal.clicked.connect(casio.pressEqual)
+    casio.actionClosed.triggered.connect(casio.closed)
     sys.exit(app.exec_())
