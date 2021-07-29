@@ -12,32 +12,44 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowTitle('Casio Fx-82')
         self.numbers = ""
         self.numberTwo = ""
+        self.total = ""
         self.operator = ""
         self.memory = []
 
     # Display number
     def displayZero(self):
         self.lineEdit.setText(self.lineEdit.text() + "0")
+
     def displayOne(self):
         self.lineEdit.setText(self.lineEdit.text() + "1")
+
     def displayTwo(self):
         self.lineEdit.setText(self.lineEdit.text() + "2")
+
     def displayThree(self):
         self.lineEdit.setText(self.lineEdit.text() + "3")
+
     def displayFour(self):
         self.lineEdit.setText(self.lineEdit.text() + "4")
+
     def displayFive(self):
         self.lineEdit.setText(self.lineEdit.text() + "5")
+
     def displaySix(self):
         self.lineEdit.setText(self.lineEdit.text() + "6")
+
     def displaySeven(self):
         self.lineEdit.setText(self.lineEdit.text() + "7")
+
     def displayEight(self):
         self.lineEdit.setText(self.lineEdit.text() + "8")
+
     def displayNine(self):
         self.lineEdit.setText(self.lineEdit.text() + "9")
+
     def displayDot(self):
         self.lineEdit.setText(self.lineEdit.text() + '.')
+
     def closed(self):
         exit()
 
@@ -46,40 +58,49 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "+"
         self.lineEdit.clear()
-        print(self.numbers)
+
     def bless(self):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "-"
         self.lineEdit.clear()
-        print(self.numbers)
+
     def bnoun(self):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "*"
         self.lineEdit.clear()
-        print(self.numbers)
+
     def bdivide(self):
         self.numbers = (float(self.lineEdit.text()))
         self.operator = "/"
         self.lineEdit.clear()
-        print(self.numbers)
-    def erase(self):
-        self.lineEdit.clear()
-    def pressEqual(self):
-        self.numberTwo = (float(self.lineEdit.text()))
-        if self.operator == "+":
-            total = float(self.numbers) + float(self.numberTwo)
-            print(total)
-            self.lineEdit.setText(str(total))
-        elif self.operator == "-":
-            total = float(self.numbers) - float(self.numberTwo)
-            self.lineEdit.setText(str(total))
-        elif self.operator == "*":
-            total = float(self.numbers) * float(self.numberTwo)
-            self.lineEdit.setText(str(total))
-        elif self.operator == "/":
-            total = float(self.numbers) / float(self.numberTwo)
-            self.lineEdit.setText(str(total))
 
+    def eraseScreen(self):
+        self.lineEdit.clear()
+
+    def eraseMemory(self):
+        self.numbers = ""
+        self.numberTwo = ""
+        self.lineEdit.clear()
+
+    def pressEqual(self):
+        if self.total == "":
+            self.numberTwo = (float(self.lineEdit.text()))
+            if self.operator == "+":
+                total = float(self.numbers) + float(self.numberTwo)
+                self.lineEdit.setText(str(total))
+                self.total = total
+            elif self.operator == "-":
+                total = float(self.numbers) - float(self.numberTwo)
+                self.lineEdit.setText(str(total))
+                self.total = total
+            elif self.operator == "*":
+                total = float(self.numbers) * float(self.numberTwo)
+                self.lineEdit.setText(str(total))
+                self.total = total
+            elif self.operator == "/":
+                total = float(self.numbers) / float(self.numberTwo)
+                self.lineEdit.setText(str(total))
+                self.total = total
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -96,7 +117,8 @@ if __name__ == '__main__':
     casio.b9.clicked.connect(casio.displayNine)
     casio.b0.clicked.connect(casio.displayZero)
     casio.dot.clicked.connect(casio.displayDot)
-    casio.bc.clicked.connect(casio.erase)
+    casio.bc.clicked.connect(casio.eraseScreen)
+    casio.bac.clicked.connect(casio.eraseMemory)
     casio.more.clicked.connect(casio.bmore)
     casio.less.clicked.connect(casio.bless)
     casio.noun.clicked.connect(casio.bnoun)
