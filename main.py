@@ -83,24 +83,24 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit.clear()
 
     def pressEqual(self):
-        if self.total == "":
-            self.numberTwo = (float(self.lineEdit.text()))
-            if self.operator == "+":
-                total = float(self.numbers) + float(self.numberTwo)
-                self.lineEdit.setText(str(total))
-                self.total = total
-            elif self.operator == "-":
-                total = float(self.numbers) - float(self.numberTwo)
-                self.lineEdit.setText(str(total))
-                self.total = total
-            elif self.operator == "*":
-                total = float(self.numbers) * float(self.numberTwo)
-                self.lineEdit.setText(str(total))
-                self.total = total
-            elif self.operator == "/":
-                total = float(self.numbers) / float(self.numberTwo)
-                self.lineEdit.setText(str(total))
-                self.total = total
+        self.numberTwo = (float(self.lineEdit.text()))
+        if self.operator == "+":
+            total = float(self.numbers) + float(self.numberTwo)
+            self.lineEdit.setText(str(total))
+            self.total = total
+        elif self.operator == "-":
+            total = float(self.numbers) - float(self.numberTwo)
+            self.lineEdit.setText(str(total))
+            self.total = total
+        elif self.operator == "*":
+            total = float(self.numbers) * float(self.numberTwo)
+            self.lineEdit.setText(str(total))
+            self.total = total
+        elif self.operator == "/":
+            total = float(self.numbers) / float(self.numberTwo)
+            self.lineEdit.setText(str(total))
+            self.total = total
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
