@@ -1,6 +1,7 @@
 import sys
+import keyboard
 
-from PySide2 import QtWidgets, QtGui, QtCore
+from PySide2 import QtWidgets
 from PySide2.QtWidgets import QApplication
 from casio_template import Ui_MainWindow
 
@@ -17,6 +18,7 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.memory = []
 
     # Display number
+
     def displayZero(self):
         self.lineEdit.setText(self.lineEdit.text() + "0")
 
@@ -82,6 +84,8 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.numberTwo = ""
         self.lineEdit.clear()
 
+
+
     def pressEqual(self):
         self.numberTwo = (float(self.lineEdit.text()))
         if self.operator == "+":
@@ -106,6 +110,16 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     casio = MyWindow()
     casio.show()
+    keyboard.on_press_key("1", lambda _: casio.displayOne())
+    keyboard.on_press_key("2", lambda _: casio.displayTwo())
+    keyboard.on_press_key("3", lambda _: casio.displayThree())
+    keyboard.on_press_key("4", lambda _: casio.displayFour())
+    keyboard.on_press_key("5", lambda _: casio.displayFive())
+    keyboard.on_press_key("6", lambda _: casio.displaySix())
+    keyboard.on_press_key("7", lambda _: casio.displaySeven())
+    keyboard.on_press_key("8", lambda _: casio.displayEight())
+    keyboard.on_press_key("9", lambda _: casio.displayNine())
+    keyboard.on_press_key("0", lambda _: casio.displayZero())
     casio.b1.clicked.connect(casio.displayOne)
     casio.b2.clicked.connect(casio.displayTwo)
     casio.b3.clicked.connect(casio.displayThree)
@@ -125,4 +139,5 @@ if __name__ == '__main__':
     casio.divide.clicked.connect(casio.bdivide)
     casio.equal.clicked.connect(casio.pressEqual)
     casio.actionClosed.triggered.connect(casio.closed)
+
     sys.exit(app.exec_())
