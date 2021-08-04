@@ -310,7 +310,7 @@ class Ui_MainWindow(object):
                                  "border-radius: 5px;")
         self.Mmore.setFlat(False)
         self.Mmore.setObjectName("Mmore")
-        self.lineEdit = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit = QtWidgets.QLineEdit(self.widget, readOnly=True)
         self.lineEdit.setGeometry(QtCore.QRect(160, 310, 361, 101))
         self.lineEdit.setAlignment(Qt.AlignRight)
         font = QtGui.QFont()

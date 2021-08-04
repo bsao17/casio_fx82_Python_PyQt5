@@ -18,7 +18,6 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.memory = []
 
     # Display number
-
     def displayZero(self):
         self.lineEdit.setText(self.lineEdit.text() + "0")
 
@@ -84,8 +83,6 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.numberTwo = ""
         self.lineEdit.clear()
 
-
-
     def pressEqual(self):
         self.numberTwo = (float(self.lineEdit.text()))
         if self.operator == "+":
@@ -104,7 +101,6 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             total = float(self.numbers) / float(self.numberTwo)
             self.lineEdit.setText(str(total))
             self.total = total
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
